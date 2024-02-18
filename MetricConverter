@@ -1,0 +1,29 @@
+import java.util.Scanner;public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double meters;
+
+
+        do {
+            System.out.print("Enter a measurement in meters: ");
+            while (!scanner.hasNextDouble()) {
+                System.out.println("That's not a valid measurement.");
+                System.out.print("Enter a measurement in meters: ");
+                scanner.next();
+            }
+            meters = scanner.nextDouble();
+        } while (meters < 0);
+
+        double miles;
+        miles = meters * 0.000621371;
+        System.out.println(meters + " meters is " + miles + " miles.");
+
+        double feet;
+        feet = meters * 3.28084;
+        System.out.println(meters + " meters is " + feet + " feet.");
+
+        double inches;
+        inches = meters * 39.3701;
+        System.out.println(meters + " meters is " + inches + " inches.");
+    }
+}

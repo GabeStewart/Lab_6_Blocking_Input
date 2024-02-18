@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        double cDegrees;
+        double fDegrees;
+
+        do {
+            System.out.print("Enter your temperature in Celsius: ");
+            while (!in.hasNextDouble()) {
+                System.out.println("That's not a valid temperature.");
+                System.out.print("Enter a temperature in Celsius: ");
+                in.next();
+            }
+            cDegrees = in.nextDouble();
+        } while (cDegrees < -273.15);
+
+        fDegrees = cDegrees * 1.8 +32;
+        if (fDegrees >= 212)
+        {
+            System.out.println("\nThe degrees in Fahrenheit are: " + fDegrees);
+            System.out.println("This temperature is at or above boiling.");
+        }
+        else if (fDegrees <= 32)
+        {
+            System.out.println("\nThe degrees in Fahrenheit are: " + fDegrees);
+            System.out.println("This temperature is at or below freezing.");
+        }
+        else
+        {
+            System.out.println("The degrees in Fahrenheit are: " + fDegrees);
+        }
+
+    }
+}

@@ -1,0 +1,49 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        double gallonsGas;
+        double fuelEff;
+        double gasPrice;
+
+
+        do {
+            System.out.print("Enter the number of gallons of gas in your gas tank: ");
+            while (!in.hasNextDouble()) {
+                System.out.println("That's not a valid input. Please try again.");
+                System.out.print("Enter the number of gallons of gas in your gas tank: ");
+                in.next();
+            }
+            gallonsGas = in.nextDouble();
+        } while (gallonsGas <= 0);
+
+
+        do {
+            System.out.print("Enter the fuel efficiency in m/g: ");
+            while (!in.hasNextDouble()) {
+                System.out.println("That's not a valid fuel efficiency. Please try again.");
+                System.out.print("Enter the fuel efficiency in m/g: ");
+                in.next();
+            }
+            fuelEff = in.nextDouble();
+        } while (fuelEff <= 0);
+
+        do {
+            System.out.print("Enter the price of gas per gallon: ");
+            while (!in.hasNextDouble()) {
+                System.out.println("That's not a valid price of gas. Please try again.");
+                System.out.print("Enter the price of gas per gallon: ");
+                in.next();
+            }
+            gasPrice = in.nextDouble();
+        } while (gasPrice <= 0);
+
+
+        double costMiles = (100 / fuelEff) * gasPrice;
+        System.out.println("Gas will cost $" + costMiles + " per 100 miles.");
+
+
+        double distance = gallonsGas * fuelEff;
+        System.out.println("The car can go around " + distance + " miles with the gas you entered.");
+    }
+}
